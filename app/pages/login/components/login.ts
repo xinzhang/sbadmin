@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router } from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import {AuthService} from '../../../services/auth.service';
 
@@ -18,8 +20,14 @@ export class LoginComponent {
 	}
 
 	login():void {		
-		this._authService.login(this.name, this.password);
-		this._router.navigateByUrl('/dashboard/home');
+		this._authService.login(this.name, this.password)
+		.subscribe( 
+            data => {
+				this._router.navigateByUrl('/dashboard/home');
+			},
+            err => console.log('Authentication error returns to controller.'),
+            () => console.log('Authentication complete returns to controller.')
+        );   
 	}
 
 }
