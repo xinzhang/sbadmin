@@ -1,33 +1,40 @@
 import {Injectable} from '@angular/core';
-//import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import {Crypto} from './crypto.util';
 
 @Injectable()
 export class AuthService {
-    private _login_url = '/auth/login';
+    private _login_url = 'http://192.168.10.54:9092/token';
 
-    //constructor(private _http: Http) { }
-
-    
+    constructor(private _http: Http) { }
 
     login(username:string, password: string): Observable<any> {
         
-        console.log(username);
         var crypto = new Crypto();    
-        var encpassword =crypto.encode(password);
+        var encpassword = crypto.encode(password);
+        var data = "grant_type=password&username=" + username + "&password=" + encpassword;
+        var headers = new Headers();  
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        console.log(encpassword);
+        this._http.post(this._login_url, data, {headers: headers})
+            .map(response => response.json())
+            .subscribe( 
+                data => this.storeToken(data),
+                err => this.logError(err),
+                () => console.log('Authentication Complete')
+            );        
+    }
 
+    logError(err) {
+        console.error("There was an error: ");
+        console.log(err);
+    }
 
-        //let headers = new Headers({ 'Content-Type': 'application/json' });
-        //let options = new RequestOptions({ headers: headers });
-
-        // return this._http.post(this._login_url, JSON.stringify(data), options)
-        //     .map(resp => resp.json())
-        //     .catch(this.handleError);
-        return null;
+    storeToken(response) {
+        console.log(response);
     }
 
 }

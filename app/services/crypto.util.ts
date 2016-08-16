@@ -4,7 +4,7 @@ export class Crypto {
         // Create baseAlgorithm Object
         var baseAlgorithm = {
             _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-            encode: function (e) {
+            encode: function (e:any) {
                 var t = "";
                 var n: any, r: any, i: any, s: any, o: any, u: any, a: any;
                 var f = 0;
@@ -28,7 +28,7 @@ export class Crypto {
                 return t;
             },
 
-            _utf8_encode: function (e) {
+            _utf8_encode: function (e:any) {
                 e = e.replace(/rn/g, "n");
                 var t = "";
                 for (var n = 0; n < e.length; n++) {
