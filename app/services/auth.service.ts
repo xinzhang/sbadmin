@@ -8,6 +8,7 @@ import {Crypto} from './crypto.util';
 @Injectable()
 export class AuthService {
     private _login_url = 'http://192.168.10.54:9092/token';
+    private _user_url = '/api/user.json';
 
     constructor(private _http: Http) { }
 
@@ -19,13 +20,28 @@ export class AuthService {
         var headers = new Headers();  
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-        this._http.post(this._login_url, data, {headers: headers})
-            .map(response => response.json())
-            .subscribe( 
-                data => this.storeToken(data),
-                err => this.logError(err),
-                () => console.log('Authentication Complete')
-            );        
+        //var result = this._http.post(this._login_url, data, {headers: headers})
+        //    .map(response => response.json());
+        var result = this._http.get(this._user_url)
+            .map(res => res.json());
+
+        result.subscribe(
+                data => {
+                    console.log('service:');
+                    console.log(data);              
+                },
+                err =>this.logError(err),
+                () => console.log('load users completed and executed in service side')
+            )
+
+        // result.subscribe( 
+        //     data => this.storeToken(data),
+        //     err => this.logError(err),
+        //     () => console.log('Authentication Complete')
+        // );        
+
+        return result;
+
     }
 
     logError(err) {
