@@ -1,0 +1,28 @@
+<div class="col-md-4">
+    <ul class="list-inline">
+        <!--Remove all href="#"-->
+        <li><a (click)="setFilterObject('AllRequests');">All Requests</a></li>
+        <li><a (click)="setFilterObject('MyRequests');">My Requests</a></li>
+        <li><a (click)="refresh()"><i class=" fa fa-refresh"></i></a></li>
+    </ul>
+</div>
+<div class="col-md-4">
+    <ul class="list-inline">
+        <li>
+            Request Type:
+            <select class="text-primary padding3" [(ngModel)]="filterObject.requestType">
+                <option value="">All</option>
+                <option *ngFor="let v of selectionRequestTypes" [value]="v">{{v}}</option>
+            </select>
+
+            Status:
+            <select class="text-primary padding3" [(ngModel)]="filterObject.requestStatus">
+                <option value="">All</option>
+                <option *ngFor="let v of selectionRequestStatuses" [value]="v">{{v}}</option>
+	        </select>
+        </li>
+    </ul>
+</div>
+<div class="col-md-3 col-md-offset-1 pull-right">
+    <input type="text" class="form-control input-sm" placeholder="Search by request Reference..." [(ngModel)]="query">
+</div>

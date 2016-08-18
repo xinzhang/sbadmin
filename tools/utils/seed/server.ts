@@ -70,4 +70,10 @@ export function serveProd() {
   server.listen(PORT, () =>
     openResource('http://localhost:' + PORT + APP_BASE)
   );
+
+  var router = express.Router();
+  router.get('/relay', function(req, res){
+      res.send('relay get page');
+  });
+
 };

@@ -13,6 +13,9 @@ import {NG2Component} from '../../../pages/component/components/component';
 import {TopNavComponent} from '../../../shared/topnav/topnav';
 import {SidebarComponent} from '../../../shared/sidebar/sidebar';
 
+import {RequestComponent} from '../../../pages/request/components/request';
+import {AssetManagementComponent} from '../../../pages/request/components/asset-management';
+
 @Component({
   moduleId: module.id,
   selector: 'dashboard-cmp',
@@ -25,11 +28,13 @@ import {SidebarComponent} from '../../../shared/sidebar/sidebar';
     { path: '/home', component: HomeComponent },
     { path: '/chart', component: ChartComponent },
     { path: '/table', component: TableComponent },
-	{ path: '/forms', component: FormComponent },
-	{ path: '/element', component: BSElementComponent},
-	{ path: '/grid', component: GridComponent },
-	{ path: '/component', component: NG2Component },
-	{ path: '/blank-page', component: BlankPageComponent }
+	  { path: '/forms', component: FormComponent },
+	  { path: '/element', component: BSElementComponent},
+	  { path: '/grid', component: GridComponent },
+	  { path: '/component', component: NG2Component },
+	  { path: '/blank-page', component: BlankPageComponent },
+    { path: '/request', component: RequestComponent },
+    { path: '/assetmanagement', component: AssetManagementComponent }
 ])
 
 export class DashboardComponent { }

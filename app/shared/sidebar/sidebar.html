@@ -4,6 +4,27 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <ul class="list-group">
         <a [routerLink]="['home']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i> Home
+        </a>
+
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('Request')">
+                <span><i class="fa fa-plus"></i> &nbsp; Request</span>
+            </a>
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'Request' }">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['request']"><span>Requests</span></a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['assetmanagement']"><span>Asset Management</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        
+        <!--
+        <a [routerLink]="['home']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>
         <a [routerLink]="['/dashboard', '/chart']" class="list-group-item">
@@ -45,5 +66,6 @@
         <a class="list-group-item more-themes" href="http://www.strapui.com/" >
             More Themes
         </a>
+        -->
     </ul>
 </nav>

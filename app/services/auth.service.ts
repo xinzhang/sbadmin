@@ -44,12 +44,12 @@ export class AuthService {
 
     }
 
-    logError(err) {
+    logError(err:any) {
         console.error("There was an error: ");
         console.log(err);
     }
 
-    storeToken(response) {
+    storeToken(response:any) {
         console.log(response);
     }
 
