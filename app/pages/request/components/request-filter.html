@@ -1,20 +1,21 @@
 <div class="col-md-4">
     <ul class="list-inline">
         <!--Remove all href="#"-->
-        <li><a (click)="setFilterObject('AllRequests');">All Requests</a></li>
-        <li><a (click)="setFilterObject('MyRequests');">My Requests</a></li>
-        <li><a (click)="refresh()"><i class=" fa fa-refresh"></i></a></li>
+        <li class="list-inline-item"><a (click)="setFilterObject('AllRequests');">All Requests</a></li>
+        <li class="list-inline-item"><a (click)="setFilterObject('MyRequests');">My Requests</a></li>
+        <li class="list-inline-item"><a (click)="refresh()"><i class=" fa fa-refresh"></i></a></li>
     </ul>
 </div>
 <div class="col-md-4">
     <ul class="list-inline">
-        <li>
+        <li class="list-inline-item">
             Request Type:
             <select class="text-primary padding3" [(ngModel)]="filterObject.requestType">
                 <option value="">All</option>
                 <option *ngFor="let v of selectionRequestTypes" [value]="v">{{v}}</option>
             </select>
-
+        </li>
+        <li class="list-inline-item">
             Status:
             <select class="text-primary padding3" [(ngModel)]="filterObject.requestStatus">
                 <option value="">All</option>

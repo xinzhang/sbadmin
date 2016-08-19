@@ -8,22 +8,21 @@
         </a>
 
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('Request')">
+            <a class="list-group-item" (click)="addExpandClass('request')">
                 <span><i class="fa fa-plus"></i> &nbsp; Request</span>
             </a>
-            <li class="nested" [ngClass]="{'expand' : showMenu === 'Request' }">
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'request' }">
                 <ul class="submenu">
                     <li>
-                        <a [routerLink]="['request']"><span>Requests</span></a>
+                        <a [routerLink]="['/dashboard', 'request']"><span>Requests</span></a>
                     </li>
                     <li>
-                        <a [routerLink]="['assetmanagement']"><span>Asset Management</span></a>
+                        <a [routerLink]="['/dashboard', 'assetmanagement']"><span>Asset Management</span></a>
                     </li>
                 </ul>
             </li>
         </div>
         
-        <!--
         <a [routerLink]="['home']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>
@@ -39,6 +38,8 @@
         <a [routerLink]="['/dashboard', '/element']" class="list-group-item">
             <i class="fa fa-fw fa-desktop"></i> Bootstrap Elements
         </a>
+
+        <!--
         <a [routerLink]="['/dashboard', '/grid']" class="list-group-item">
             <i class="fa fa-fw fa-wrench"></i> Bootstrap Grid
         </a>
