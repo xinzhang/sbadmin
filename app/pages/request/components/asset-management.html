@@ -4,22 +4,79 @@
     </div>
 
     <div class="panel-body">
-        <form role="form" name="mlcRequestAssetManagementForm" novalidate>
-            <h1> to be added </h1>
+        <form role="form" name="mlcRequestAssetManagementForm" novalidate [ngFormModel]="mlcRequestAssetManagementForm">
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label">APIR Code*</label>
+                </div>
+
+                <div class="col-md-4 form-group" show-errors>
+                    <input class="form-control" name="apirCode" type="text" 
+                        [(ngModel)]="assetManagement.APIRCode" [pattern]="apirValidation" required 
+                        [ngFormControl]="apirCode"/>
+                    <div *ngIf="apirCode.dirty && !apirCode.valid && !apirCode.pending" class="alert alert-danger">
+                        <span class="help-block" *ngIf="apirCode.errors.required">APIR code is required</span>
+                        <span class="help-block" *ngIf="apirCode.errors.pattern">APIR code is not in the expected format as AAA0000AA or AAAA0000A</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!--
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label">Security Name*</label>
+                </div>
+                <div class="col-md-4 form-group" show-errors>
+                    <input class="form-control" name="securityName" type="text" ng-model="vm.assetManagement.securityName" required />
+                    <span class="help-block" ng-if="mlcRequestAssetManagementForm.securityName.$error.required">Security name is required</span>
+                </div>
+            </div>
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label">Asset Type*</label>
+                </div>
+                <div class="col-md-4 form-group" show-errors>
+                    <p class="input-group">
+                        <select class="text-primary padding3" ng-model="vm.assetManagement.assetType" name="assetType" ng-options=" item.value as item.text for item in vm.assetType" required></select>
+                        <span class="help-block" ng-if="mlcRequestAssetManagementForm.assetType.$error.required">Asset type is required</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label">Asset Status*</label>
+                </div>
+                <div class="col-md-4 form-group" show-errors>
+                    <p class="input-group">
+                        <select class="text-primary padding3" ng-model="vm.assetManagement.assetStatus" name="assetStatus" ng-options="item.value as item.text for item in vm.requestStatus" required></select>
+                        <span class="help-block" ng-if="mlcRequestAssetManagementForm.assetStatus.$error.required">Asset status is required</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label">Comments</label>
+                </div>
+                <div class="col-md-8">
+                                           
+                </div>
+            </div>
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label"></label>
+                </div>
+                <div class="col-md-4">                    
+                </div>
+            </div>
+            -->
+            <div class="row bottom10">
+                <div class="col-md-3">
+                    <label class="control-label"></label>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="submitted">Submit</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="javascript:;" class="btn btn-primary btn-lg" role="button">Learn more »</a>
-        </p>
-    </div>
-
-<ul class="list-inline">
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-</ul>
