@@ -24,8 +24,6 @@ export class LoginComponent {
 		.subscribe( 
             data => {
 				this._router.navigateByUrl('/dashboard/home');
-				//console.log('controller:');
-				//console.log(data);           				
 			},
             err => console.log('Authentication error returns to controller.'),
             () => console.log('Authentication complete returns to controller.')

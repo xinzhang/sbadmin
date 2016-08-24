@@ -11,48 +11,63 @@
                 </div>
 
                 <div class="col-md-4 form-group" show-errors>
-                    <input class="form-control" name="apirCode" type="text" 
-                        [(ngModel)]="assetManagement.APIRCode" [pattern]="apirValidation" required 
-                        [ngFormControl]="apirCode"/>
-                    <div *ngIf="apirCode.dirty && !apirCode.valid && !apirCode.pending" class="alert alert-danger">
+                    <input class="form-control" name="apirCode" type="text" [(ngModel)]="assetManagement.APIRCode" [pattern]="apirValidation"
+                        required [ngFormControl]="apirCode" />
+                    <div *ngIf="apirCode.dirty && !apirCode.valid" class="alert alert-danger">
                         <span class="help-block" *ngIf="apirCode.errors.required">APIR code is required</span>
                         <span class="help-block" *ngIf="apirCode.errors.pattern">APIR code is not in the expected format as AAA0000AA or AAAA0000A</span>
                     </div>
                 </div>
             </div>
-            
-            <!--
+
             <div class="row bottom10">
                 <div class="col-md-3">
                     <label class="control-label">Security Name*</label>
                 </div>
                 <div class="col-md-4 form-group" show-errors>
-                    <input class="form-control" name="securityName" type="text" ng-model="vm.assetManagement.securityName" required />
-                    <span class="help-block" ng-if="mlcRequestAssetManagementForm.securityName.$error.required">Security name is required</span>
+                    <input class="form-control" name="securityName" type="text" [(ngModel)]="assetManagement.SecurityName" required [ngFormControl]="securityName"
+                    />
+                    <div *ngIf="securityName.dirty && !securityName.valid" class="alert alert-danger">
+                        <span class="help-block" *ngIf="securityName.errors.required">Security name is required</span>
+                    </div>
                 </div>
             </div>
+
             <div class="row bottom10">
                 <div class="col-md-3">
                     <label class="control-label">Asset Type*</label>
                 </div>
                 <div class="col-md-4 form-group" show-errors>
-                    <p class="input-group">
-                        <select class="text-primary padding3" ng-model="vm.assetManagement.assetType" name="assetType" ng-options=" item.value as item.text for item in vm.assetType" required></select>
-                        <span class="help-block" ng-if="mlcRequestAssetManagementForm.assetType.$error.required">Asset type is required</span>
-                    </p>
+
+                    <select class="text-primary padding3" [(ngModel)]="assetManagement.AssetType" [ngFormControl]="assetType" name="assetType" required>
+                        <option *ngFor="let item of assetTypes" [value]="item.value">{{item.text}}</option>                        
+                    </select>
+
+                    <div *ngIf="assetType.dirty && !assetType.valid" class="alert alert-danger">
+                        <span class="help-block" *ngIf="assetType.errors.required">Asset type is required</span>
+                    </div>
+                    
                 </div>
             </div>
+
             <div class="row bottom10">
                 <div class="col-md-3">
                     <label class="control-label">Asset Status*</label>
                 </div>
                 <div class="col-md-4 form-group" show-errors>
-                    <p class="input-group">
-                        <select class="text-primary padding3" ng-model="vm.assetManagement.assetStatus" name="assetStatus" ng-options="item.value as item.text for item in vm.requestStatus" required></select>
-                        <span class="help-block" ng-if="mlcRequestAssetManagementForm.assetStatus.$error.required">Asset status is required</span>
-                    </p>
+
+                    <select class="text-primary padding3" [(ngModel)]="assetManagement.AssetStatus" [ngFormControl]="assetStatus" name="assetStatus" required>
+                        <option *ngFor = "let item of requestStatus" [value]="item.value">{{item.text}}</option>
+                    </select>  
+
+                    <div *ngIf="assetStatus.dirty && !assetStatus.valid" class="alert alert-danger">
+                        <span class="help-block" *ngIf="assetStatus.errors.required">Asset status is required</span>
+                    </div>
+
                 </div>
             </div>
+
+            <!--
             <div class="row bottom10">
                 <div class="col-md-3">
                     <label class="control-label">Comments</label>
@@ -74,7 +89,7 @@
                     <label class="control-label"></label>
                 </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="submitted">Submit</button>
+                    <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="submitted || mlcRequestAssetManagementForm.invalid">Submit</button>
                 </div>
             </div>
         </form>
