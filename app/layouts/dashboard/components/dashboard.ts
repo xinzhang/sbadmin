@@ -15,6 +15,7 @@ import {SidebarComponent} from '../../../shared/sidebar/sidebar';
 
 import {RequestComponent} from '../../../pages/request/components/request';
 import {AssetManagementComponent} from '../../../pages/request/components/asset-management';
+import {DistributionComponent} from '../../../pages/servicePerformance/distributions';
 
 @Component({
   moduleId: module.id,
@@ -34,7 +35,8 @@ import {AssetManagementComponent} from '../../../pages/request/components/asset-
 	  { path: '/component', component: NG2Component },
 	  { path: '/blank-page', component: BlankPageComponent },
     { path: '/request', component: RequestComponent },
-    { path: '/assetmanagement', component: AssetManagementComponent }
+    { path: '/assetmanagement', component: AssetManagementComponent },
+    { path: '/distributions', component: DistributionComponent }
 ])
 
 export class DashboardComponent { }

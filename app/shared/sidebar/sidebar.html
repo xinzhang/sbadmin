@@ -23,6 +23,19 @@
             </li>
         </div>
         
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('service')">
+                <span><i class="fa fa-plus"></i> &nbsp; Service Performance</span>
+            </a>
+            <li class="nested" [ngClass]="{'expand' : showMenu === 'service' }">
+                <ul class="submenu">
+                    <li>
+                        <a [routerLink]="['/dashboard', 'distributions']"><span>Distributions</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
         <a [routerLink]="['home']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i> Dashboard
         </a>

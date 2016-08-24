@@ -93,5 +93,4 @@ export class AssetManagementComponent {
         console.log("asset management submitted.");
     }
 
-
 }
