@@ -1,19 +1,20 @@
+
 import { Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
-import {DistributionService} from '../../../services/distributions.service';
+import {DistributionService} from '../../services/distributions.service';
 
 @Component({
-	selector : 'distributions',
-	templateUrl : './pages/servicePerformance/distributions.html',
+	selector : 'distributions',	
+    templateUrl: './pages/servicePerformance/distributions.html',
 	directives: [ROUTER_DIRECTIVES],
 	providers: [DistributionService]
 })
 
 export class DistributionComponent implements OnInit {
-    title: string = "Distribution Performance";
+
     overviewPieChartDataSource:any[] = [];
 
     constructor(private _distService:DistributionService){        

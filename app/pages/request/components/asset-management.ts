@@ -10,6 +10,7 @@ import {ROUTER_DIRECTIVES, Router } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
+import {CurrencyMaskDirective} from '../../../directives/currency-mask';
 
 class AssetManagement {
     ClientCode:string;
@@ -17,13 +18,14 @@ class AssetManagement {
     SecurityName:string;
     AssetType:string;
     AssetStatus:string;    
+    OrderAmount:number;
 }
 
 
 @Component({
     selector: 'asset-management',
     templateUrl: './pages/request/components/asset-management.html',
-    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES, CurrencyMaskDirective],
     providers: []
 })
 
