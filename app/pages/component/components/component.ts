@@ -6,6 +6,10 @@ import { AlertComponent, BUTTON_DIRECTIVES, DROPDOWN_DIRECTIVES, PAGINATION_DIRE
 import { PROGRESSBAR_DIRECTIVES, RatingComponent, TAB_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 import {TOOLTIP_DIRECTIVES, TYPEAHEAD_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
 
+import {AccordionComponent} from 'ng2-bootstrap/ng2-bootstrap';
+
+import { min } from 'moment/moment';
+
 @Component({
     moduleId: module.id,
     selector: 'component-cmp',

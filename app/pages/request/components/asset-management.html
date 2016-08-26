@@ -97,7 +97,7 @@
                     <label class="control-label"></label>
                 </div>
                 <div class="col-md-3">
-                    <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="submitted || mlcRequestAssetManagementForm.invalid">Submit</button>
+                    <button type="button" class="btn btn-primary" (click)="submit()" [disabled]="submitted || !mlcRequestAssetManagementForm.valid">Submit</button>
                 </div>
             </div>
         </form>
